@@ -11,3 +11,5 @@ https://raw.githubusercontent.com/datasets/s-and-p-500-companies/master/data/con
 Stock Historical Data
 https://finance.yahoo.com/quote/%5EGSPC/history?p=%5EGSPC/
 
+Notes:
+The load.py file only works for python 2.7 version
