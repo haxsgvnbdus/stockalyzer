@@ -1,12 +1,26 @@
 from keras.models import Sequential
-from keras.layers import Dense
 from keras.layers import LSTM
+from keras.layers import Dense, Activation
 
 
-regressor = Sequential()
-regressor.add(LSTM(units = 4, activation = 'sigmoid', input_shape = (None, 1)))
-regressor.add(Dense(units = 1))
+#model info
+number_epochs = 10
+batch_size = 1 
+verbose = 2
 
-regressor.compile(optimizer = 'adam', loss = 'mean_squared_error')
-regressor.fit(X_train, y_train, batch_size = 32, epochs = 200)
+
+model = Sequential()
+model.add(LSTM(32, input_shape=(1, step_size), return_sequences = True))
+model.add(LSTM(16))
+model.add(Dense(1))
+model.add(Activation('linear'))
+
+model.compile(loss='mean_squared_error', optimizer='adagrad') # Try out SGD, adam
+
+
+
+
+
+ 
+
 
